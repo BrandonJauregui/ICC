@@ -1,0 +1,33 @@
+import time
+def menu():
+   print("=============================")
+   print("==     1. Crear            ==")
+   print("==     2. Buscar           ==")
+   print("==     3. Editar           ==")
+   print("==     4. Eliminar         ==")
+   print("==     5. Mensaje          ==")
+   print("==     6. Ver historial    ==")
+   print("==     7. Salir            ==")
+   print("=============================")
+   opcion=int(input("Seleccione una opción del 1 al 6: "))
+   return opcion
+def crear(archivo,i):
+  archivo.write(str(i)+" ")
+  nombre=input("Ingrese nombre del estudiante: ")
+  apellido_paterno=input("Ingrese el apellido paterno del estudiante: ")
+  edad=input("Ingrese edad del estudiante: ")
+  telefono=input("Ingrese el teléfono del estudiante: ")
+  archivo.write(nombre+" ")
+  archivo.write(apellido_paterno+" ")
+  archivo.write(edad+" ")
+  archivo.write(telefono+"\n")
+  archivo.close()
+  print("Funcionalidad de crear")
+  return archivo
+
+def buscar(lista_donde_se_buscara_el_valor, valor_a_buscar):
+  for line in lista_donde_se_buscara_el_valor:
+   if valor_a_buscar in line:
+      print(line)
+print("Funcionalidad de buscar")
+
