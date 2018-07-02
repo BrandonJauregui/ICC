@@ -1,0 +1,64 @@
+def editar(lista, ID_Registro):
+ lineas=lista.read().splitlines()
+ for l in lineas:
+     linea=l.split(" ")
+     if str(ID_Registro) == linea[0]:
+         print("1.Nombre")
+         print("2.Apellido paterno")
+         print("3.Edad")
+         print("4.Teléfono")
+         pregunta=int(input("¿Qué desea modificar?"))
+         if pregunta==1:
+             nuevo_dato=input("Ingrese nuevo nombre: ")
+             dato=linea[1]
+             linea.pop(1)
+             linea.insert(1,nuevo_dato)
+             print(linea)
+             for i in linea:
+                 lista.write(i+" ")
+         elif pregunta==2:
+             nuevo_dato=input("Ingrese nuevo apellido paterno: ")
+             dato=linea[2]
+             linea.pop(2)
+             linea.insert(2,nuevo_dato)
+             print(linea)
+             for i in linea:
+                 lista.write(i+" ")
+         elif pregunta==3:
+             nuevo_dato=input("Ingrese nueva edad: ")
+             dato=linea[3]
+             linea.pop(3)
+             linea.insert(3,nuevo_dato)
+             print(linea)
+             for i in linea:
+                 lista.write(i+" ")
+         elif pregunta==4:
+             nuevo_dato=input("ingrese nuevo teléfono: ")
+             dato=linea[4]
+             linea.pop(4)
+             linea.insert(4,nuevo_dato)
+             print(linea)
+             for i in linea:
+                 lista.write(i+" ")
+         else:
+             print("error")
+ lista.close()
+ print("Funcionalidad de editar")
+ return dato
+
+def eliminar(archivo, ID_Registro):
+ lista=[]
+ lineas=archivo.read().splitlines()
+ for l in lineas:
+     linea=l.split(" ")
+     lista.append(linea[0])
+ if ID_Registro in lista:
+     sobreescribir(ID_Registro)
+ else:
+     print("ID no encontrado")
+ print("Funcionalidad de eliminar")
+
+def mensaje(emisor, receptor, mensaje, archivo_mensajes,hora,fecha):
+ archivo_mensajes.write(str(emisor)+" "+str(receptor)+" "+str(fecha)+" "+str(hora)+" "+ mensaje+"\n")
+ print("Funcionalidad de mensaje")
+ archivo_mensajes.close()
